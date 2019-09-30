@@ -1,0 +1,88 @@
+s         lea r0, c6
+          st r0, ac6
+          lea r0, c7
+          st r0, ac7
+          ld r0, x
+          dout           ; 1
+          nl
+          add r0, r0, r0
+          dout           ; 2
+          nl
+          add r0, r0, 1
+          dout           ; 3
+          nl 
+          add r0, r0, 3
+          and r0, r0, 4
+          dout           ; 4
+          nl
+          brnzp L1
+          halt
+L1        
+          brp L2
+          halt
+L2        
+ABC
+          add r1, r0, 0
+          not r1, r1
+          brn L3
+          halt
+L3        brnzp L4 
+x         .fill 1
+L4        and r2, r2, r2
+          brz L5
+          halt
+          .blkw 3
+L5        lea r3, L6
+          jmp r3
+          halt
+L6        jsr sub1      ; 5
+          lea r4, sub2
+          jsrr r4       ; 6
+          ldi r0, ac7
+          dout          ; 7
+          nl
+          lea r4, c6
+          ldr r0, r4, 4
+          dout          ; 8
+          nl
+          ld  r5, minus
+          not r0, r5 
+          dout          ; -9
+          nl
+          add r0, r0, -1
+          st r0, save
+          ld r0, save
+          dout          ; -10
+          nl
+          add r0, r0, -1
+          sti r0, ac7
+          ld  r0, c7
+          dout          ; -11
+          nl
+          add r0, r0, -1
+          lea r1, save
+          str r0, r1, 1
+          ld  r0, save2
+          dout          ; -12
+          nl
+          halt
+          ; hello
+
+sub1      ld r0, c5
+          dout           ; 5
+          nl
+          ret
+c5        .fill 5
+minus     .fill 8
+sub2      ld r0, c6
+          dout
+          nl
+          ret
+c6        .fill 6
+c7        .fill 7
+ac6       .fill 0          
+ac7       .fill 0
+c8        .fill 8
+save      .fill -5
+save2     .fill 100
+

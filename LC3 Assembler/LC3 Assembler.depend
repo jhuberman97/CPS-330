@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1540849312 source:d:\code blocks workspace\lc3 assembler\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1539634733 source:d:\code blocks workspace\lc3 intepreter\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
